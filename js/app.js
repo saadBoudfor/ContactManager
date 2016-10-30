@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngMaterial']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngMdIcons']);
 
 
 // app.config(function ($routeProvider) {
@@ -8,3 +8,9 @@ var app = angular.module('app', ['ngRoute', 'ngMaterial']);
 //
 // });
 
+app.config(function ($mdIconProvider, $mdThemingProvider) {
+    $mdIconProvider.icon('menu', './assert/svg/menu.svg');
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('red');
+});
