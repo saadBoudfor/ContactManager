@@ -6,4 +6,31 @@
     <md-toolbar>
         <h1>Contacts</h1>
     </md-toolbar>
+    <md-content>
+        <div layout-padding>
+            <md-autocomplete
+                    md-search-text="searchText"
+                    md-items="user in users | filter:searchText"
+                    md-item-text="user.name"
+                    md-min-length="3"
+                    placeholder="Chercher par nom"
+            >
+                <md-item-template>
+                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{user.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                    Utilisateur introuvable
+                </md-not-found>
+            </md-autocomplete>
+        </div>
+
+        <md-list>
+            <md-list-item ng-repeat="user in users | orderBy:'name' | filter:searchText">
+                <md-button ng-class="{'selected': user===selectedUser}" ng-click="selectUser(user)">
+                    <md-icon md-svg-icon="{{user.avatar}}" class="avatar"></md-icon>
+                    {{user.name}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </md-sidenav>

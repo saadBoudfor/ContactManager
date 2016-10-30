@@ -9,7 +9,9 @@ var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngMdIcons']);
 // });
 
 app.config(function ($mdIconProvider, $mdThemingProvider) {
-    $mdIconProvider.icon('menu', './assert/svg/menu.svg');
+    $mdIconProvider
+        .icon('menu', './assert/svg/menu.svg')
+        .defaultIconSet('./assert/svg/avatars.svg', 128);
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('red');

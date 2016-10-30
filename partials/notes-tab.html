@@ -1,0 +1,12 @@
+<p ng-if="!selectedUser.notes.length"> Pas de notes disponibles pour {{selectedUser.name}}.</p>
+<md-content>
+    <md-card ng-repeat="note in selectedUser.notes | orderBy:'-date':true">
+        <md-card-content>
+            <h3>{{note.title}}</h3>
+            <p>{{note.date}}</p>
+        </md-card-content>
+        <md-card-action layout="row" layout-align="end center">
+                <md-button ng-click="removeNote(note)"> Supprimer </md-button>
+        </md-card-action>
+    </md-card>
+</md-content>

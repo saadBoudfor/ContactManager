@@ -18,7 +18,15 @@
 <div layout="column" flex>
     <div ng-include="'partials/toolbar-header.html'"></div>
     <md-content flex id="content">
-        Main content
+        <div   ng-include="'partials/main-content.html'"></div>
+        <md-tabs md-dynamic-height  md-selected="selectedTab" md-stretch-tabs>
+            <md-tab label="Bio">
+                <div ng-include="'partials/bio-tab.html'"></div>
+            </md-tab>
+            <md-tab label="Notes">
+                <div ng-include="'partials/notes-tab.html'"></div>
+            </md-tab>
+        </md-tabs>
     </md-content>
 </div>
 
