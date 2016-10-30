@@ -1,5 +1,34 @@
-<h1>Hello ! </h1>
-<div>
-    <p ng-repeat="user in users"><strong>{{user.name}}</strong></p>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="initial-scale=1"/>
+</head>
 
-</div>
+<body layout="row">
+    <div style="background-color: #009688" flex="30">
+        Sidenav
+    </div>
+
+    <div layout="column" flex>
+        <div style="background-color: #3949ab"> Toolbar</div>
+        <md-content flex>
+            Main content
+        </md-content>
+    </div>
+
+<!-- Angular Material Dependencies -->
+<script src="js/libs/angularJs/angular.min.js"></script>
+<script src="js/libs/angularJs/angular-route.min.js"></script>
+<script src="js/libs/angularJs/angular-animate.min.js"></script>
+<script src="js/libs/angularJs/angular-aria.min.js"></script>
+<script src="js/libs/angularJs/angular-material.min.js"></script>
+<!-- Main file-->
+<script src="js/app.js"></script>
+<!-- Services -->
+<script src="js/services/usersFactory.js"></script>
+<!-- Controllers -->
+<script src="js/controllers/usersCtrl.js"></script>
+</body>
