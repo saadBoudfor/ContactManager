@@ -18,26 +18,26 @@ app.controller('mainCtrl', function ($scope, usersFactory, $mdSidenav, $mdToast,
         $scope.selectedUser = user;
         usersFactory.selectUser($scope.selectedUser);
         $scope.selectedTab = 0;
-        if($mdSidenav('left').isOpen()){
+        if ($mdSidenav('left').isOpen()) {
             $mdSidenav('left').close();
         }
     };
-    
+
     $scope.removeNote = function (note) {
-        var noteIndex  = $scope.selectedUser.notes.indexOf(note);
+        var noteIndex = $scope.selectedUser.notes.indexOf(note);
         $scope.selectedUser.notes.splice(noteIndex, 1);
         openToast('La note à bien été suprimée ! ');
     };
 
     $scope.removeAllNotes = function (ev) {
-       $mdDialog.show(openConfirm('Vous êtes sur de vouloir supprimer toutes les notes ?', 'Suppression des notes', 'D\'accord', 'Non' , ev))
-           .then(function () {
-              $scope.selectedUser.notes = [];
-           });
+        $mdDialog.show(openConfirm('Vous êtes sur de vouloir supprimer toutes les notes ?', 'Suppression des notes', 'D\'accord', 'Non', ev))
+            .then(function () {
+                $scope.selectedUser.notes = [];
+            });
     };
 
     $scope.showContactOptions = function ($event) {
-        $mdBottomSheet.show( {
+        $mdBottomSheet.show({
             parent: angular.element(document.getElementById('wrapper')),
             templateUrl: './partials/contactUser.html',
             controller: 'contactCtrl',
@@ -50,7 +50,7 @@ app.controller('mainCtrl', function ($scope, usersFactory, $mdSidenav, $mdToast,
 
 
     $scope.addUser = function ($event) {
-        var useFullScreen  =  ($mdMedia('sm')||$mdMedia('xs'));
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show({
             templateUrl: './partials/userDialog.html',
             parent: angular.element(document.body),
@@ -58,10 +58,15 @@ app.controller('mainCtrl', function ($scope, usersFactory, $mdSidenav, $mdToast,
             clickOutsideToClose: true,
             fullScreen: useFullScreen,
             targetEvent: $event
-
-
-    }).then(function (user) {
-            console.log(user);
+        }).then(function (user) {
+            var formatedUser = {
+                name: user.firstName + ' ' + +user.lastName,
+                bio: user.biography,
+                avatar: user.avatar
+            };
+            $scope.users.push(formatedUser);
+            $scope.selectedUser = formatedUser;
+            usersFactory.selectUser($scope.selectedUser);
             openToast('L\'utilisateur à été ajouté avec succès :) ');
         });
     };
@@ -69,15 +74,15 @@ app.controller('mainCtrl', function ($scope, usersFactory, $mdSidenav, $mdToast,
 
     // Fonctions utiles ...
     function openConfirm(msg, title, OkText, cancelText, ev) {
-         return   $mdDialog.confirm()
-                .parent(angular.element(document.querySelector('#popupContainer')))
-                .clickOutsideToClose(true)
-                .title(title)
-                .textContent(msg)
-                .ariaLabel('Alert Dialog Demo')
-                .ok(OkText)
-                .cancel(cancelText)
-                .targetEvent(ev);
+        return $mdDialog.confirm()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title(title)
+            .textContent(msg)
+            .ariaLabel('Alert Dialog Demo')
+            .ok(OkText)
+            .cancel(cancelText)
+            .targetEvent(ev);
     }
 
     function openToast(msg) {
