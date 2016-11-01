@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngMdIcons']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngMdIcons', 'LocalForageModule']);
 
 
 // app.config(function ($routeProvider) {
