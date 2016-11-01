@@ -1,0 +1,13 @@
+<md-bottom-sheet>
+    <md-subheader>
+        Contacter  <span class="name">{{selectedUser.name}}</span>
+    </md-subheader>
+    <md-list>
+        <md-item ng-repeat="action in actions">
+            <md-button ng-click="submitContact(action)">
+                 <md-icon md-svg-icon="{{action.icon}}"></md-icon>
+                {{action.name}}
+            </md-button>
+        </md-item>
+    </md-list>
+</md-bottom-sheet>

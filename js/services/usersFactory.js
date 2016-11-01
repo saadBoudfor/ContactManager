@@ -14,6 +14,12 @@ app.factory('usersFactory', function ($http, $q) {
                });
 
            return defered.promise;
+       },
+       selectUser: function (selectedUser) {
+           factory.selectedUser = selectedUser;
+       },
+       getSelectedUser: function () {
+           return factory.selectedUser;
        }
    };
    return factory;

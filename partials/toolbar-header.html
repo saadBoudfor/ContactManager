@@ -5,7 +5,30 @@
         </md-button>
         <h2>
             Contacts Manage
-
         </h2>
+        <md-fab-speed-dial
+        md-direction="down"
+        class="md-fling md-fab-top-right"
+        >
+            <md-fab-trigger>
+                <md-button class="md-fab">
+                    <md-icon md-svg-icon="menu"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button class="md-fab md-raised md-mini"  ng-click="showContactOptions($event)">
+                    <ng-md-icon icon="face"> </ng-md-icon>
+                    <md-tooltip md-direction="left" > Contacter cette personne </md-tooltip>
+                </md-button>
+
+                <md-button class="md-fab md-raised md-mini" ng-click="removeAllNotes($event)">
+                    <ng-md-icon icon="clear_all"> </ng-md-icon>
+                    <md-tooltip md-direction="left" > Supprimer toutes les notes</md-tooltip>
+                </md-button>
+
+            </md-fab-actions>
+
+        </md-fab-speed-dial>
     </div>
 </md-toolbar>
