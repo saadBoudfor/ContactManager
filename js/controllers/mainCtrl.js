@@ -93,6 +93,7 @@ app.controller('mainCtrl', function ($scope, usersFactory, $mdSidenav, $mdToast,
     $scope.addNote = function () {
         $scope.selectedUser.notes.push({title: $scope.newNote.title, date: getFormatedDate($scope.newNote.date)});
         $scope.newNote = {title: '', date: ''};
+        usersFactory.storeUsers($scope.users);
         // $scope.$apply();
         openToast('La note à été ajoutée! ');
     };

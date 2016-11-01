@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Manager</title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="./bower_components/angular-material-icons/angular-material-icons.css"/>
@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body layout="row" ng-cloak  ng-controller="mainCtrl">
+<body layout="row" ng-cloak ng-controller="mainCtrl">
 
 <div ng-include="'partials/sideNav.html'" layout="vertical"></div>
 
 <div layout="column" flex id="wrapper">
     <div ng-include="'partials/toolbar-header.html'"></div>
     <md-content flex id="content">
-        <div   ng-include="'partials/main-content.html'"></div>
-        <md-tabs md-dynamic-height  md-selected="selectedTab" md-stretch-tabs>
+        <div ng-include="'partials/main-content.html'"></div>
+        <md-tabs md-dynamic-height md-selected="selectedTab" md-stretch-tabs>
             <md-tab label="Bio">
                 <div ng-include="'partials/bio-tab.html'"></div>
             </md-tab>
